@@ -1,0 +1,41 @@
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printSection,
+    #printSection * {
+        visibility: visible;
+    }
+
+    #printSection {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    body {
+        font-size: 8pt;
+        /* Ukuran font pada cetakan */
+        margin: 0;
+        /* Hilangkan margin */
+        padding: 0;
+        /* Hilangkan padding */
+    }
+
+    /* Atur ukuran font untuk elemen-elemen tertentu jika diperlukan */
+    .container {
+        font-size: 8pt;
+    }
+
+    /* Atur ukuran font untuk teks tertentu jika diperlukan */
+    .total {
+        font-size: 12pt;
+    }
+
+
+    /* .receipt {
+                font-family: 'Courier New', Courier, monospace;
+            } */
+
+}

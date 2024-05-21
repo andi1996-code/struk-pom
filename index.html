@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pembelian BBM</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mx-auto max-w-sm rounded-lg bg-slate-400 p-5">
+        <form id="bbmForm" class="mx-auto max-w-sm">
+            <div class="mb-5">
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Jenis BBM</label>
+                <input type="text" id="jenisBBM"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    value="PERTAMAX" disabled />
+            </div>
+            <div class="mb-5">
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Harga/Liter</label>
+                <input type="number" id="hargaPerLiter"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    value="13500" required />
+            </div>
+            <div class="mb-5">
+                <label for="tanggal"
+                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                <input type="date" id="tanggal"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    required />
+            </div>
+            <div class="mb-5">
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Total Beli</label>
+                <select id="total"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    required>
+                    <option value="20000">20000</option>
+                    <option value="22000">22000</option>
+                    <option value="25000">25000</option>
+                </select>
+            </div>
+            <button type="submit"
+                class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <!-- <div id="printSection" class="mx-auto mt-1 max-w-xs">
+        <div class="border-b border-black">
+            <img src="/img/Pertamina Logo (PNG480p) - Vector69Com.png" class="w-36 filter grayscale h-58 mb-5 mx-auto"
+                alt="">
+            <p class="text-center font-bold">SPBU 24.341.130</p>
+            <p class="text-center">Jl. Raya Adipuro</p>
+            <p class="text-center">Trimurjo - Lampung Tengah</p>
+            <p class="text-center mb-6">Telp. (0283)324185</p>
+        </div>
+        <div class="border-b border-black">
+            <p class="text-left"><span id="tanggalOutput">0</span></p>
+        </div>
+        <div class="color-black mt-3 border-black pb-3">
+            <p class="text-left">Jenis BBM : <span id="jenisBBMOutput"></span></p>
+            <p class="text-left">
+                Harga/liter : Rp <span id="hargaPerLiterOutput"></span>
+            </p>
+            <p class="text-left">Volume: (L) <span id="volumeOutput"></span></p>
+            <p class="border-b border-black my-2"></p>
+            <p class="text-right">Total: Rp. <span id="totalOutput"></span></p>
+            <p class="border-b border-black my-2"></p>
+            <p class="text-center font-bold mt-9">TERIMAKASIH DAN SELAMAT JALAN</p>
+        </div>
+    </div> -->
+    <div id="printSection" class="mx-auto mt-1 max-w-xs">
+        <div class="border-b border-black border-dashed">
+            <img src="/img/Pertamina Logo (PNG480p) - Vector69Com.png" class="w-36 filter grayscale h-58 mb-5 mx-auto"
+                alt="">
+            <p class="text-center font-bold">SPBU 24.341.130</p>
+            <p class="text-center">Jl. Raya Adipuro</p>
+            <p class="text-center">Trimurjo - Lampung Tengah</p>
+            <p class="text-center mb-6">Telp. (0283)324185</p>
+        </div>
+        <div class="border-b border-black border-dashed">
+            <p class="text-left"><span id="tanggalOutput">0</span></p>
+        </div>
+        <table class="w-full">
+            <tr>
+                <td class="text-left">Jenis BBM</td>
+                <td class="text-left">:</td>
+                <td> <span class="text-left" id="jenisBBMOutput"></span></td>
+            </tr>
+            <tr>
+                <td class="text-left">Harga/liter</td>
+                <td class="text-left">:</td>
+                <td>Rp. <span id="hargaPerLiterOutput"></span></td>
+            </tr>
+            <tr>
+                <td class="text-left">Volume</td>
+                <td class="text-left">:</td>
+                <td>(L) <span id="volumeOutput"></span></td>
+            </tr>
+            <tr>
+                <td class="text-left">Total</td>
+                <td class="text-left">:</td>
+                <td>Rp. <span id="totalOutputTable"></span></td>
+            </tr>
+        </table>
+        <p class="border-b border-black my-2 border-dashed"></p>
+        <p class="text-right">Cash : Rp. <span id="totalOutputCash"></span></p>
+        <p class="border-b border-black my-2 border-dashed"></p>
+        <p class="text-center font-bold mt-9">TERIMAKASIH DAN SELAMAT JALAN</p>
+    </div>
+    <button onclick="printReceipt()" class="block mx-auto mt-5 px-4 py-2 bg-blue-500 text-white rounded-lg">
+        Cetak
+    </button>
+
+    <script>
+        const bbmForm = document.getElementById("bbmForm");
+        const jenisBBMOutput = document.getElementById("jenisBBMOutput");
+        const hargaPerLiterOutput = document.getElementById(
+            "hargaPerLiterOutput"
+        );
+        const tanggalOutput = document.getElementById("tanggalOutput");
+        const volumeOutput = document.getElementById("volumeOutput");
+        const totalOutputTable = document.getElementById("totalOutputTable");
+        const totalOutputCash = document.getElementById("totalOutputCash");
+
+
+        bbmForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const jenisBBM = document.getElementById("jenisBBM").value;
+            const hargaPerLiter = parseFloat(
+                document.getElementById("hargaPerLiter").value
+            );
+            const tanggal = new Date(document.getElementById("tanggal").value);
+            const total = parseFloat(document.getElementById("total").value);
+
+            // Hitung volume berdasarkan total dan harga per liter
+            const volume = total / hargaPerLiter;
+
+            // Buat array nama hari dan bulan
+            const namaHari = [
+                "Minggu",
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+            ];
+            const namaBulan = [
+                "Januari",
+                "Februari",
+                "Maret",
+                "April",
+                "Mei",
+                "Juni",
+                "Juli",
+                "Agustus",
+                "September",
+                "Oktober",
+                "November",
+                "Desember",
+            ];
+
+            // Dapatkan nama hari dan bulan dari objek Date
+            const namaHariStr = namaHari[tanggal.getDay()];
+            const namaBulanStr = namaBulan[tanggal.getMonth()];
+            const tahunStr = tanggal.getFullYear();
+
+            jenisBBMOutput.textContent = jenisBBM;
+            hargaPerLiterOutput.textContent = hargaPerLiter.toLocaleString();
+            tanggalOutput.textContent = `${namaHariStr}, ${tanggal.getDate()} ${namaBulanStr} ${tahunStr}`;
+            volumeOutput.textContent = volume.toFixed(2); // Tampilkan volume dengan 2 desimal
+            totalOutputTable.textContent = total.toLocaleString();
+            totalOutputCash.textContent = total.toLocaleString();
+
+        });
+        function printReceipt() {
+            // Mendapatkan elemen kontainer untuk mencetak
+            const container = document.querySelector(".container");
+
+            // Mencetak konten dari kontainer
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
